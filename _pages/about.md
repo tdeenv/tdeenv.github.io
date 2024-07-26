@@ -16,7 +16,7 @@ About me
 =============
 
 
-I am  a student at the University of Sydney where I study a Bachelor of Economics majoring in Economics and Econometrics. I am passionate about data science, public policy, and social impact. 
+I am  a graduate from the University of Sydney where I studied a Bachelor of Economics majoring in Economics and Econometrics. I am passionate about data science, public policy, and social impact. 
 
 In my spare time I enjoy listening to music (hiphop, techno, synthwave, metal), reading (sci-fi, cyberpunk, economics), woodworking and boxing. 
 
