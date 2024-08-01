@@ -6,20 +6,11 @@ author_profile: true
 ---
 ## Visualising the location of Australian financial services licences
 
-
-[<img src="/images/Dashboard 1.png">]
-
-
----
-layout: default
-title: Tableau Dashboard
----
-
-<div class='tableauPlaceholder' id='viz1722489082825' style='position: relative'>
+<div class='tableauPlaceholder' id='viz1722489082825' style='position: relative; width: 800px; height: 600px;'>
     <noscript>
         <a href='#'><img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/AF/AFSLicences/Dashboard1/1_rss.png' style='border: none' /></a>
     </noscript>
-    <object class='tableauViz' style='display:none;'>
+    <object class='tableauViz' style='display:none; width: 800px; height: 600px;'>
         <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
         <param name='embed_code_version' value='3' />
         <param name='site_root' value='' />
@@ -40,11 +31,11 @@ title: Tableau Dashboard
     var divElement = document.getElementById('viz1722489082825');
     var vizElement = divElement.getElementsByTagName('object')[0];
     if ( divElement.offsetWidth > 800 ) {
-        vizElement.style.width='1366px';vizElement.style.height='795px';
+        vizElement.style.width='800px';vizElement.style.height='600px';
     } else if ( divElement.offsetWidth > 500 ) {
-        vizElement.style.width='1366px';vizElement.style.height='795px';
+        vizElement.style.width='800px';vizElement.style.height='600px';
     } else {
-        vizElement.style.width='100%';vizElement.style.height='1377px';
+        vizElement.style.width='100%';vizElement.style.height='600px';
     }
     var scriptElement = document.createElement('script');
     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
