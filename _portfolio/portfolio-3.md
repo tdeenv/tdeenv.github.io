@@ -12,8 +12,7 @@ while the web-style interfaces uses JavaScript and HTML, enabbled by the eel pac
 
 The video below shows it in action.
 
-<div align="center">
-    <video width="560" height="315" controls>
-        <source src="https://github.com/tdeenv/tdeenv.github.io/blob/c46489efbd506c0e52c2fe16383c449533564c0c/images/video.mp4">
-    </video>
-</div>
+
+<video width="640" height="480" controls>
+  <source src="https://raw.githubusercontent.com/tdeenv/tdeenv.github.io/master/images/video.mp4" type="video/mp4">
+</video>
