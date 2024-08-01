@@ -14,6 +14,6 @@ The video below shows it in action.
 
 <div align="center">
     <video width="560" height="315" controls>
-        <source src="https://github.com/tdeenv/tdeenv.github.io/blob/e1499cf60c9b294989070022bd1baedad17e773b/images/video(1).mp4" type="video/mp4">
+        <source src="https://github.com/tdeenv/tdeenv.github.io/blob/c46489efbd506c0e52c2fe16383c449533564c0c/images/video.mp4">
     </video>
 </div>
