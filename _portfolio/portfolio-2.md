@@ -3,6 +3,10 @@ title: "Visualising the locations of AFS licences"
 collection: portfolio
 --- 
 While learning to use Tableau I decided to practice with publically available records of AFS licences and where they are registered. Unsurprisingly, firms holding AFS licences are predominantly clustered in the coastal cities, though there are a few in the regions.
+
+
+
+
 <div class='tableauPlaceholder' id='viz1722491502575' style='position: relative; width: 800px; height: 827px; overflow: hidden;'>
     <noscript>
         <a href='#'><img alt='Dashboard 1 ' src='https://public.tableau.com/static/images/NW/NW9ZP3DX8/1_rss.png' style='border: none' /></a>
