@@ -2,9 +2,6 @@
 main:
   - title: "Projects"
     url: /projects/
-    
-  - title: "Visualisation"
-    url: /viz/
        
   - title: "Blog"
     url: /blog/
