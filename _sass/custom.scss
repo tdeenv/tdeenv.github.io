@@ -1,5 +1,5 @@
 //
-// Projects grid — always 2 columns, big square cards, fade-in, hover zoom
+// Projects grid — always two columns, square cards, fade-in, hover zoom
 //
 
 .grid__wrapper {
@@ -8,51 +8,56 @@
     gap: 2rem;
     margin-top: 2rem;
   }
-  
+  // ← paste it here (or anywhere in this file after the grid definition)
+.grid__wrapper .archive__item {
+    width: 100%;
+}
+  // make each card fill its cell & animate
   .grid__item {
-    /* Fade-in hook */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
     animation-delay: var(--delay, 0s);
   }
   
-  .grid__item article.archive__item {
+  // force the actual card block to fill the cell
+  .grid__wrapper .archive__item {
+    width: 100%;
     background: #fff;
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
-    min-height: 340px; /* makes the card nice and square */
+    min-height: 340px;
   }
   
-  .grid__item:hover article.archive__item {
+  .grid__item:hover .archive__item {
     transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
   }
   
-  .grid__item .archive__item-teaser {
+  // fixed image area
+  .grid__wrapper .archive__item-teaser {
     flex-shrink: 0;
     width: 100%;
-    height: 220px;  /* fixed image height */
+    height: 220px;
     overflow: hidden;
   }
-  
-  .grid__item .archive__item-teaser img {
+  .grid__wrapper .archive__item-teaser img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
-  
   .grid__item:hover .archive__item-teaser img {
     transform: scale(1.05);
   }
   
-  .grid__item .archive__item-title {
-    flex-grow: 1;   /* title fills the remaining space */
+  // title styling
+  .grid__wrapper .archive__item-title {
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,17 +67,15 @@
     font-weight: bold;
     text-align: center;
   }
-  
-  .grid__item .archive__item-title a {
+  .grid__wrapper .archive__item-title a {
     color: #007acc;
     text-decoration: none;
   }
-  
-  .grid__item .archive__item-title a:hover {
+  .grid__wrapper .archive__item-title a:hover {
     text-decoration: underline;
   }
   
-  /* Fade-in keyframes */
+  // fade-in animation
   @keyframes fadeInUp {
     to {
       opacity: 1;

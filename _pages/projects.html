@@ -11,9 +11,6 @@ author_profile: true
   {% assign delay = 0 %}
   {% assign sorted_projects = site.portfolio | sort: 'path' | reverse %}
   {% for post in sorted_projects %}
-    <div class="grid__item" style="--delay: {{ delay }}s;">
-      {% include archive-single.html type="grid" %}
-    </div>
-    {% assign delay = delay | plus: 0.1 %}
+    {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
