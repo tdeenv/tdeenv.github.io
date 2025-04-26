@@ -7,7 +7,9 @@ author_profile: true
 
 {% include base_path %}
 
-{% assign sorted_projects = site.portfolio | sort: 'path' | reverse %}
-{% for post in sorted_projects %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="grid__wrapper">
+  {% assign sorted_projects = site.portfolio | sort: 'path' | reverse %}
+  {% for post in sorted_projects %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>
