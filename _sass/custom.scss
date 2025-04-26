@@ -12,10 +12,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-    animation-delay: calc(var(--card-index) * 0.1s);
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
   }
   
   .archive__item:hover {
@@ -25,7 +24,7 @@
   
   .archive__item-teaser img {
     width: 100%;
-    height: 240px;
+    height: 180px;
     object-fit: cover;
     display: block;
     transition: transform 0.3s ease;
@@ -41,6 +40,10 @@
     padding: 1rem 0.5rem;
     margin: 0;
     background: white;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .archive__item-title a {
@@ -50,16 +53,5 @@
   
   .archive__item-title a:hover {
     text-decoration: underline;
-  }
-  
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
   
