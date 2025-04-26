@@ -60,17 +60,24 @@
 
 // 6) Title styling: intrinsic height only, smaller padding
 .grid__wrapper .archive__item-title {
-  flex: 0 0 auto;              /* only as tall as its content + padding */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;              /* smaller than before */
-  margin: 0;
+  /* stop it filling 100% width */
+  display: inline-block;
+  flex: 0 0 auto;
+  
+  /* limit how wide it can grow */
+  max-width: 80%;        /* tweak this % to taste */
+  
+  /* centre in the card */
+  margin: 0.5rem auto;    /* top/bottom 0.5rem, auto left/right */
+  
+  padding: 0.5rem;
   font-size: 1.25rem;
   font-weight: bold;
   text-align: center;
 }
+
 .grid__wrapper .archive__item-title a {
+  display: inline-block; /* ensures the link wraps its text tightly */
   color: #007acc;
   text-decoration: none;
 }
