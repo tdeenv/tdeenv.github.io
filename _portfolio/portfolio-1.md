@@ -1,6 +1,8 @@
 ---
 title: "Text Analysis: Analysing coffee reviews with R and Tableau"
 collection: portfolio
+header:
+  teaser: portfolio-2/Coffee2.jpg
 ---
 Using R and Tableau I analyse qualitative reviews of beans to understand what experts are looking for in a good cup of coffee.
 
