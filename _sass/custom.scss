@@ -1,4 +1,8 @@
 // _sass/custom.scss
+// DEBUG – you should see a thick red border around every card
+.grid__wrapper > .grid__item > .archive__item {
+  border: 4px solid red !important;
+}
 // Custom Projects Grid Styles (override Minimal Mistakes Susy)
 
 // 0) Disable Susy floats on grid items so our pure CSS grid takes over
