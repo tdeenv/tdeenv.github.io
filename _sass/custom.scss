@@ -3,87 +3,85 @@
 
 // 0) Disable Susy floats on grid items so our pure CSS grid takes over
 .grid__wrapper > .grid__item {
-    width: 100% !important;
-    margin: 0 !important;
-    float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+// 1) Force a 2-column CSS grid for the projects page
+.grid__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+// 2) Fade-in animation on each grid cell
+.grid__wrapper > .grid__item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+// 3) Style the card itself (<article class="archive__item">)
+.grid__wrapper > .grid__item > .archive__item {
+  width: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;            /* adjusted for square shape */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+// 4) Hover lift + zoom
+.grid__wrapper > .grid__item:hover > .archive__item {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+// 5) Image area: make it flex so it fills all leftover space
+.grid__wrapper .archive__item-teaser {
+  flex: 1 1 auto;              /* fill available vertical space */
+  width: 100%;
+  overflow: hidden;
+}
+.grid__wrapper .archive__item-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.grid__wrapper > .grid__item:hover .archive__item-teaser img {
+  transform: scale(1.05);
+}
+
+// 6) Title styling: intrinsic height only, smaller padding
+.grid__wrapper .archive__item-title {
+  flex: 0 0 auto;              /* only as tall as its content + padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;              /* smaller than before */
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+.grid__wrapper .archive__item-title a {
+  color: #007acc;
+  text-decoration: none;
+}
+.grid__wrapper .archive__item-title a:hover {
+  text-decoration: underline;
+}
+
+// 7) Fade-in keyframes
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  // 1) Force a 2-column CSS grid for the projects page
-  .grid__wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  // 2) Fade-in animation on each grid cell
-  .grid__wrapper > .grid__item {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-  }
-  
-  // 3) Style the card itself (<article class="archive__item">)
-  .grid__wrapper > .grid__item > .archive__item {
-    width: 100%;
-    background: #fff;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    min-height: 320px;            /* adjusted for square shape */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  
-  // 4) Hover lift + zoom
-  .grid__wrapper > .grid__item:hover > .archive__item {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-  }
-  
-  // 5) Image area: increased height to show more of the image
-  .grid__wrapper .archive__item-teaser {
-    flex-shrink: 0;
-    width: 100%;
-    height: 400px;                /* ↑ was 220px */
-    overflow: hidden;
-  }
-  .grid__wrapper .archive__item-teaser img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  .grid__wrapper > .grid__item:hover .archive__item-teaser img {
-    transform: scale(1.05);
-  }
-  
-  // 6) Title styling: less padding for more image space
-  .grid__wrapper .archive__item-title {
-    flex-grow: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;              /* ↓ was 1rem */
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  .grid__wrapper .archive__item-title a {
-    color: #007acc;
-    text-decoration: none;
-  }
-  .grid__wrapper .archive__item-title a:hover {
-    text-decoration: underline;
-  }
-  
-  // 7) Fade-in keyframes
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+}
