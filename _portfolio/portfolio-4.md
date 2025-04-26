@@ -2,7 +2,7 @@
 title: "Tableau: Mapping and Visualising Sydney's Data"
 collection: portfolio
 header:
-  teaser: Capture.jpg
+  teaser: Capture.JPG
 --- 
 As I continue learning Tableau, I’ve been diving into some cool new features like calculated fields, parameters, and parameter controls, which I have used to visualise data interactively. I also explored using Tableau for geographic data like shapefiles, creating detailed and dynamic maps.
 
