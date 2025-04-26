@@ -20,7 +20,8 @@
   
   .archive__item-teaser img {
     width: 100%;
-    height: auto;
+    height: 250px;
+    object-fit: cover;
     display: block;
     border-bottom: 1px solid #eee;
   }
