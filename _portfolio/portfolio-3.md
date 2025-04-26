@@ -1,6 +1,8 @@
 ---
 title: "Python project: Muay thai combo generator"
 collection: portfolio
+header:
+  teaser: v1.jpg
 ---
 
 
