@@ -88,3 +88,12 @@
     transform: translateY(0);
   }
 }
+
+.grid__wrapper .archive__item-teaser {
+  flex: 0 0 80%;
+}
+
+.grid__wrapper .archive__item-title {
+  flex: 0 0 20%;
+  /* you might want to remove your inline-block centering here */
+}
