@@ -89,25 +89,19 @@
   }
 }
 
-.grid__wrapper .archive__item-teaser {
-  flex: 0 0 80%;
-}
-
-.grid__wrapper .archive__item-title {
-  flex: 0 0 20%;
-  /* you might want to remove your inline-block centering here */
-}
-
+// ── Definitively size the card and the teaser ──
 .grid__wrapper > .grid__item > .archive__item {
-  height: 380px;      /* instead of min-height */
+  height: 380px;            // total card height
 }
 
-.grid__wrapper .archive__item-teaser {
-  flex: none;         /* opt out of flex sizing */
-  height: 280px;      /* teaser gets 280px */
+.grid__wrapper > .grid__item > .archive__item > .archive__item-teaser {
+  flex: none;               // opt out of flex
+  height: 280px;            // give the teaser its own height
   overflow: hidden;
 }
 
-.grid__wrapper .archive__item-title {
-  flex: none;         /* title will just take its own height */
+.grid__wrapper > .grid__item > .archive__item > .archive__item-teaser img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
