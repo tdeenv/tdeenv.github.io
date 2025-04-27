@@ -89,19 +89,19 @@
   }
 }
 
-// ── Definitively size the card and the teaser ──
+// ── Force the card & teaser sizes, with !important to win specificity ──
 .grid__wrapper > .grid__item > .archive__item {
-  height: 380px;            // total card height
+  height: 380px !important;            /* total card height */
 }
 
 .grid__wrapper > .grid__item > .archive__item > .archive__item-teaser {
-  flex: none;               // opt out of flex
-  height: 280px;            // give the teaser its own height
-  overflow: hidden;
+  flex: none !important;               /* opt out of flex-grow/shrink */
+  height: 280px !important;            /* teaser height */
+  overflow: hidden !important;         /* crop excess */
 }
 
 .grid__wrapper > .grid__item > .archive__item > .archive__item-teaser img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }
