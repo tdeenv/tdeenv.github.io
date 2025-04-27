@@ -97,3 +97,17 @@
   flex: 0 0 20%;
   /* you might want to remove your inline-block centering here */
 }
+
+.grid__wrapper > .grid__item > .archive__item {
+  height: 380px;      /* instead of min-height */
+}
+
+.grid__wrapper .archive__item-teaser {
+  flex: none;         /* opt out of flex sizing */
+  height: 280px;      /* teaser gets 280px */
+  overflow: hidden;
+}
+
+.grid__wrapper .archive__item-title {
+  flex: none;         /* title will just take its own height */
+}
