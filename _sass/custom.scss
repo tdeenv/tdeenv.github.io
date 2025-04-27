@@ -91,17 +91,17 @@
 
 // ── Force the card & teaser sizes, with !important to win specificity ──
 .grid__wrapper > .grid__item > .archive__item {
-  height: 380px !important;            /* total card height */
+  height: 380px;            /* total card height */
 }
 
 .grid__wrapper > .grid__item > .archive__item > .archive__item-teaser {
-  flex: none !important;               /* opt out of flex-grow/shrink */
-  height: 280px !important;            /* teaser height */
-  overflow: hidden !important;         /* crop excess */
+  flex: none;               /* opt out of flex-grow/shrink */
+  height: 300px;            /* teaser height */
+  overflow: hidden;         /* crop excess */
 }
 
 .grid__wrapper > .grid__item > .archive__item > .archive__item-teaser img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
