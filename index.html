@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Theo Gaiyasudeen</title>
+
+  <!-- Font and Tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Open Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Preloader Animation -->
+  <style>
+    @keyframes blind {
+      to { transform: translateY(-100%); }
+    }
+    .animate-blind {
+      animation: blind 0.8s ease-in-out forwards;
+    }
+    .delay-\[150ms\] { animation-delay: 100ms; }
+    .delay-\[250ms\] { animation-delay: 200ms; }
+    .delay-\[350ms\] { animation-delay: 300ms; }
+    .delay-\[450ms\] { animation-delay: 400ms; }
+    .delay-\[550ms\] { animation-delay: 500ms; }
+  </style>
+</head>
+
+<body class="font-sans bg-white text-black">
+
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-50 flex">
+    <div class="w-1/5 h-full bg-gradient-to-b from-teal-500 to-blue-900 animate-blind delay-[150ms]"></div>
+    <div class="w-1/5 h-full bg-gradient-to-b from-teal-500 to-blue-900 animate-blind delay-[250ms]"></div>
+    <div class="w-1/5 h-full bg-gradient-to-b from-teal-500 to-blue-900 animate-blind delay-[350ms]"></div>
+    <div class="w-1/5 h-full bg-gradient-to-b from-teal-500 to-blue-900 animate-blind delay-[450ms]"></div>
+    <div class="w-1/5 h-full bg-gradient-to-b from-teal-500 to-blue-900 animate-blind delay-[550ms]"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="opacity-0 p-4 flex justify-between items-center sticky top-0 z-30 transition-opacity duration-1000 ease-out">
+    <div class="text-2xl font-bold"></div>
+    <div class="space-x-4 text-black text-3xl underline">
+      <a href="projects.html" class="hover:text-teal-300">Projects</a>
+     <!--- <a href="blog.html" class="hover:text-teal-300">Blog</a> -->
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col items-center justify-center space-y-4 text-center">
+   <h1 id="hero-title"
+    class="text-8xl opacity-0 scale-95 transition-all duration-1000 ease-out"
+    style="font-family: 'Raleway'">
+  Theo Gaiyasudeen
+</h1>
+
+    <div id="hero-links" class="text-xl opacity-0 scale-95 transition-all duration-1000 ease-out">
+      <a href="https://www.linkedin.com/in/tdeen" target="_blank" class="underline hover:text-teal-300">LinkedIn</a>
+      <span class="mx-2">|</span>
+      <a href="https://github.com/tdeenv" target="_blank" class="underline hover:text-teal-300">GitHub</a>
+    </div>
+    <p id="hero-subtitle" class="text-2xl opacity-0 scale-95 transition-all duration-1000 ease-out">
+      Welcome to my personal site
+    </p>
+    <div id="hero-arrow" class="mt-6 text-3xl text-teal-400 animate-bounce">
+  ↓
+</div>
+  </section>
+
+<!-- ABOUT ME SECTION -->
+<section id="about" class="px-8 pt-0 pb-8">
+  <div class="max-w-5xl mx-auto opacity-0 translate-y-6 transition-all duration-1000 ease-out" id="about-container">
+
+    <!-- Heading OUTSIDE the flex row -->
+    <h2 class="text-3xl font-bold underline mb-6 self-start">About Me</h2>
+
+    <div class="flex flex-col md:flex-row items-start gap-8">
+      <!-- IMAGE -->
+      <img src="images/aboutMePic.jpg" alt="Theo Deen" class="w-[400px] h-[400px] object-cover" />
+
+      <!-- TEXT -->
+      <div class="flex flex-col justify-start">
+        <p class="text-lg leading-relaxed text-gray-900">
+          I graduated from the University of Sydney with a Bachelor of Economics in Economics and Econometrics. I am passionate about driving social impact using quantitative insights.
+
+          In my spare time I like listening to music (ambient, techno, synthwave, metal), reading (Brandon Sanderson, sci-fi, economics), and cycling. I also really enjoy making things, either physically with wood or more recently digitally with code.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROFESSIONAL EXPERIENCE SECTION -->
+<section id="experience" class="px-8 py-16">
+  <div class="max-w-5xl mx-auto flex flex-col gap-8 opacity-0 translate-y-6 transition-all duration-1000 ease-out" id="experience-container">
+    
+    <h2 class="text-3xl font-bold underline self-start">Professional Experience</h2> 
+
+    <!-- Social Impact & Property -->
+    <div class="flex flex-col justify-start">
+      <h3 class="text-2xl font-semibold mb-2">Social Impact & Property</h3>
+      <p class="text-lg leading-relaxed text-gray-900">
+        I currently work as a Social Sustainability Analyst at Stockland, where I focus on social impact measurement and community development within the property sector.
+      </p>
+    </div>
+
+    <!-- Public Policy & Evaluation -->
+    <div class="flex flex-col justify-start">
+      <h3 class="text-2xl font-semibold mb-2">Public Policy & Evaluation</h3>
+      <p class="text-lg leading-relaxed text-gray-900">
+        In 2019, during my first year at university, I joined ARTD Consultants—a boutique public policy consulting firm—as an intern. I later progressed to a research assistant and then to an analyst role. At ARTD, I worked on evaluations of public policies and programs across a range of sectors, including:
+      </p>
+      <ul class="list-disc list-inside text-lg text-gray-900 mt-2">
+        <li>Health</li>
+        <li>Transport, infrastructure, and regional development</li>
+        <li>Environment and natural resources</li>
+        <li>Disability and ageing</li>
+        <li>Education and youth development</li>
+      </ul>
+      <p class="text-lg leading-relaxed text-gray-900 mt-4">
+        Working on quantitative analyses in these projects helped me discover a strong interest in working with data, which led me to shift my university major from international business to econometrics.
+      </p>
+    </div>
+
+    <!-- Market Research -->
+    <div class="flex flex-col justify-start">
+      <h3 class="text-2xl font-semibold mb-2">Market Research</h3>
+      <p class="text-lg leading-relaxed text-gray-900">
+        I also worked as an Insights Analyst on a part-time contract with GfK (now part of NielsenIQ) in the consumer intelligence and consulting team. My work involved analysing survey data, developing client reports, assisting with questionnaire design, and maintaining brand health trackers.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- JS: Preloader + Animations -->
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        const hero = document.getElementById('hero-title');
+        const links = document.getElementById('hero-links');
+        const subtitle = document.getElementById('hero-subtitle');
+        const navbar = document.getElementById('navbar');
+
+        if (preloader) preloader.remove();
+        if (hero)     hero.classList.remove('opacity-0', 'scale-95'), hero.classList.add('opacity-100', 'scale-100');
+        if (links)    links.classList.remove('opacity-0', 'scale-95'), links.classList.add('opacity-100', 'scale-100');
+        if (subtitle) subtitle.classList.remove('opacity-0', 'scale-95'), subtitle.classList.add('opacity-100', 'scale-100');
+        if (navbar)   navbar.classList.remove('opacity-0'), navbar.classList.add('opacity-100');
+      }, 1200);
+    });
+
+    // Scroll effect for hero elements
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const opacity = Math.max(0, 1 - scrollY / 300);
+      const scale = Math.max(0.8, 1 - scrollY / 1000);
+
+      ['hero-title', 'hero-links', 'hero-subtitle'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.opacity = opacity;
+          el.style.transform = `scale(${scale})`;
+        }
+      });
+    });
+
+    // Intersection observer for About section
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-6');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const aboutSection = document.getElementById('about-container');
+    if (aboutSection) observer.observe(aboutSection);
+
+    const experienceSection = document.getElementById('experience-container');
+    if (experienceSection) observer.observe(experienceSection);
+  </script>
+</body>
+</html>
