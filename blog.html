@@ -4,26 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog - Theo Gaiyasudeen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            codex: '#00AAAA'
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body class="font-sans bg-white text-black">
 
   <!-- NAVBAR -->
-  <nav class="p-4 flex justify-between items-center sticky top-0 z-30 bg-white">
-    <div class="text-xl font-bold">Theo Gaiyasudeen</div>
-    <div class="space-x-4 text-3xl underline">
-      <a href="index.html" class="hover:text-teal-300">About</a>
-      <a href="projects.html" class="hover:text-teal-300">Projects</a>
-      <a href="blog.html" class="hover:text-teal-300">Blog</a>
-    </div>
+  <nav class="flex justify-center space-x-6 text-sm text-gray-600 py-4 sticky top-0 bg-white z-50">
+     <a href="index.html" class="hover:text-codex">home</a>
+    <a href="index.html" class="hover:text-codex">about</a>
+    <a href="experience.html" class="hover:text-codex">experience</a>
+    <a href="projects.html" class="hover:text-codex">projects</a>
+    <a href="blog.html" class="hover:text-codex font-semibold text-codex">blog</a>
   </nav>
 
   <!-- BLOG POSTS -->
-  <main class="p-8 max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8 text-center">Blog</h1>
+  <main class="px-6 py-16 max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-12 text-center">Blog</h1>
     <div class="space-y-6">
       <div onclick="openModal('post1')" class="cursor-pointer bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
         <h2 class="text-2xl font-semibold mb-2">Post Title One</h2>
