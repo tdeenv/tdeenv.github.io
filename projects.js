@@ -1,30 +1,4 @@
 const projects = [
-  // ----- PROJECT SCHEMAFIT -----
-  {
-    title: "SchemaFit",
-    img: "images/schemafit/SchemaFit.JPG",
-    content: `
-      <p><em><a href="https://github.com/tdeenv/SchemaFit" target="_blank" class="underline text-blue-600 hover:text-blue-800">Check this project out on GitHub</a></em></p>
-      <p class="mt-4">To evaluate how I am responding to my exercise routine, I needed an app that could collect both quantitative and qualitative data from each workout. I wanted a tracker that could collect information on:</p>
-      <ul class="list-disc ml-6 mt-2">
-        <li>Measurements like weight</li>
-        <li>What exercises I have done in each workout</li>
-        <li>How many sets and reps per exercise</li>
-        <li>Qualitative comments for each set</li>
-      </ul>
-      <p class="mt-4">I turned to Python to design a bespoke solution using SQLite and Flask. The form allows entering data, and the history tab visualises changes over time in measurements and estimated 1RM (using the Epley formula).</p>
-      <h3 class="font-semibold mt-6 mb-2">The data entry page</h3>
-      <img src="/images/schemafit/form.JPG" alt="Form" class="w-full mb-6 rounded shadow">
-
-      <h3 class="font-semibold mt-6 mb-2">The history page</h3>
-      <img src="/images/schemafit/history.JPG" alt="History" class="w-full mb-6 rounded shadow">
-
-      <h3 class="font-semibold mt-6 mb-2">Future Features</h3>
-      <ul class="list-disc ml-6">
-        <li>An integrated timing function</li>
-      </ul>
-    `,
-  },
 
   // ----- PROJECT TABLEAU SYD -----
   {
