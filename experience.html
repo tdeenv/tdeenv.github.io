@@ -3,70 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Theo Gaiyasudeen</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          },
-          colors: {
-            codex: '#00AAAA'
-          }
-        }
-      }
+  <title>Experience — Theo Gaiyasudeen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --surface: #f7f7f5; --border: #e8e8e8;
+      --text: #111111; --muted: #999999; --accent: #00AAAA;
     }
-  </script>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 56px;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    .page { max-width: 760px; margin: 0 auto; padding: 7rem 2.5rem 7rem; }
+    .page-eyebrow { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+    .page-title {
+      font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+      color: var(--text); margin-bottom: 4rem;
+    }
+
+    .timeline { display: flex; flex-direction: column; }
+
+    .tl-item {
+      display: grid; grid-template-columns: 120px 1px 1fr;
+      gap: 0 2rem; padding-bottom: 3.2rem;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item:last-child .tl-line { background: transparent; }
+
+    .tl-meta { text-align: right; padding-top: 0.15rem; }
+    .tl-period { font-size: 0.63rem; color: var(--muted); letter-spacing: 0.05em; line-height: 1.6; }
+
+    .tl-line { width: 1px; background: var(--border); position: relative; margin: 0 auto; }
+    .tl-line::before {
+      content: ''; position: absolute; top: 0.2rem; left: 50%;
+      transform: translateX(-50%); width: 7px; height: 7px;
+      background: var(--accent); border-radius: 50%;
+    }
+
+    .tl-company { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.35rem; }
+    .tl-role { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.9rem; }
+    .tl-desc { font-size: 0.81rem; color: #666; line-height: 1.8; margin-bottom: 0.7rem; }
+    .tl-desc:last-of-type { margin-bottom: 0; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+    .tl-tag {
+      font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--muted); padding: 0.22rem 0.55rem; border: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .tl-item { grid-template-columns: 1fr; }
+      .tl-meta { text-align: left; margin-bottom: 0.4rem; }
+      .tl-line { display: none; }
+    }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 1.8rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 760px; margin: 0 auto;
+    }
+    footer span { font-size: 0.68rem; color: var(--muted); }
+  </style>
 </head>
-<body class="bg-white text-black font-sans">
+<body>
 
-  <!-- Main Navigation -->
-  <nav class="flex justify-center space-x-6 text-sm text-gray-600 py-4 sticky top-0 bg-white z-50">
-    <a href="index.html" class="hover:text-codex">home</a>
-    <a href="about.html" class="hover:text-codex">about</a>
-    <a href="experience.html" class="hover:text-codex font-semibold text-codex">experience</a>
-    <a href="projects.html" class="hover:text-codex">projects</a>
-    <a href="blog.html" class="hover:text-codex">blog</a>
-  </nav>
+<nav>
+  <a href="index.html" class="nav-logo">TG</a>
+  <ul class="nav-links">
+    <li><a href="index.html">home</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="experience.html" class="active">experience</a></li>
+    <li><a href="projects.html">projects</a></li>
+    <li><a href="blog.html">blog</a></li>
+  </ul>
+</nav>
 
-  <!-- Experience Section -->
-  <section class="px-6 py-16 max-w-3xl mx-auto">
-    <h1 class="text-4xl font-bold mb-12 text-center">Professional Experience</h1>
+<main class="page">
+  <p class="page-eyebrow">// experience</p>
+  <h1 class="page-title">Experience</h1>
 
-    <div class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2">Social Impact & Property</h2>
-      <p class="text-base leading-relaxed">
-        I currently work as a Social Sustainability Analyst at Stockland, where I focus on social impact measurement and community development within the property sector.
-      </p>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-meta">
+        <p class="tl-period">Oct 2024 -<br>Present</p>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <p class="tl-company">Stockland</p>
+        <h2 class="tl-role">Social Sustainability Analyst</h2>
+        <p class="tl-desc">Working within the Group Sustainability team at a large multi-asset class property developer, focusing on social impact strategy and measurement. Key experiences include contributing to the social value section of the annual report, presenting to university students on social sustainability, and partnering with project teams to optimise social outcomes.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Property</span>
+          <span class="tl-tag">Social Impact Measurement</span>
+          <span class="tl-tag">Python</span>
+          <span class="tl-tag">SQL</span>
+          <span class="tl-tag">QGIS</span>
+          <span class="tl-tag">Geopandas</span>
+          <span class="tl-tag">Polars</span>
+        </div>
+      </div>
     </div>
 
-    <div class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2">Public Policy & Evaluation</h2>
-      <p class="text-base leading-relaxed">
-        In 2019, during my first year at university, I joined ARTD Consultants—a boutique public policy consulting firm—as an intern. I later progressed to a research assistant and then to an analyst role. At ARTD, I worked on evaluations of public policies and programs across a range of sectors, including:
-      </p>
-      <ul class="list-disc list-inside text-base mt-2">
-        <li>Health</li>
-        <li>Transport, infrastructure, and regional development</li>
-        <li>Environment and natural resources</li>
-        <li>Disability and ageing</li>
-        <li>Education and youth development</li>
-      </ul>
-      <p class="mt-4 text-base leading-relaxed">
-        Working on quantitative analyses in these projects helped me discover a strong interest in working with data, which led me to shift my university major from international business to econometrics.
-      </p>
+    <div class="tl-item">
+      <div class="tl-meta">
+        <p class="tl-period">Oct 2022 -<br>Feb 2023</p>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <p class="tl-company">GfK (now NielsenIQ)</p>
+        <h2 class="tl-role">Insights Analyst</h2>
+        <p class="tl-desc">Contract role in the consumer intelligence and consulting team. Analysed survey data, developed client reports, assisted with questionnaire design, and maintained brand health trackers.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Market Research</span>
+          <span class="tl-tag">Questionnaire Design</span>
+          <span class="tl-tag">Survey Analysis</span>
+          <span class="tl-tag">Brand Health Tracking</span>
+          <span class="tl-tag">Q</span>
+          <span class="tl-tag">Qualtrics</span>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <h2 class="text-2xl font-semibold mb-2">Market Research</h2>
-      <p class="text-base leading-relaxed">
-        I also worked as an Insights Analyst on a part-time contract with GfK (now part of NielsenIQ) in the consumer intelligence and consulting team. My work involved analysing survey data, developing client reports, assisting with questionnaire design, and maintaining brand health trackers.
-      </p>
+    <div class="tl-item">
+      <div class="tl-meta">
+        <p class="tl-period">Jul 2019 -<br>Mar 2022</p>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-body">
+        <p class="tl-company">ARTD Consultants</p>
+        <h2 class="tl-role">Analyst</h2>
+        <p class="tl-desc">Joined as an intern in first year of university and progressed to research assistant, and then analyst. Worked on evaluations of public policies and programs across housing, health, infrastructure, environment, disability, and education.</p>
+        <p class="tl-desc">Quantitative work on these projects sparked a strong interest in data, leading me to shift my major from international business to econometrics.</p>
+        <div class="tl-tags">
+          <span class="tl-tag">Policy Evaluation</span>
+          <span class="tl-tag">Quantitative Analysis</span>
+          <span class="tl-tag">Qualitative Analysis</span>
+          <span class="tl-tag">Mixed Methods</span>
+          <span class="tl-tag">R</span>
+          <span class="tl-tag">SPSS</span>
+          <span class="tl-tag">NVivo</span>
+        </div>
+      </div>
     </div>
-  </section>
+
+  </div>
+</main>
+
+<footer>
+  <span>Theo Gaiyasudeen</span>
+  <span>Sydney, AU</span>
+</footer>
 
 </body>
 </html>

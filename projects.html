@@ -1,54 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - Theo Gaiyasudeen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif']
-          },
-          colors: {
-            codex: '#00AAAA'
-          }
-        }
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Theo Gaiyasudeen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --surface: #f7f7f5; --border: #e8e8e8;
+      --text: #111111; --muted: #999999; --accent: #00AAAA;
     }
-  </script>
-  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 56px;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    .page {
+      max-width: 960px; margin: 0 auto;
+      padding: 10rem 2.5rem 7rem;
+    }
+    .page-eyebrow { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+    .page-title {
+      font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1;
+      color: var(--text); margin-bottom: 4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+    }
+
+    .proj-card {
+      background: var(--bg); text-decoration: none;
+      display: flex; flex-direction: column;
+      transition: background 0.2s; overflow: hidden;
+    }
+    .proj-card:hover { background: var(--surface); }
+    .proj-card:hover .proj-arrow { color: var(--accent); transform: translateX(3px); }
+    .proj-card:hover .proj-img img { transform: scale(1.03); }
+
+    .proj-img { overflow: hidden; aspect-ratio: 16/9; background: #111; }
+    .proj-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; filter: grayscale(15%); }
+    .proj-img .no-img {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase;
+    }
+
+    .proj-body { padding: 1.6rem 1.8rem 2rem; flex: 1; display: flex; flex-direction: column; }
+    .proj-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
+    .proj-tag { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    .proj-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .proj-desc { font-size: 0.76rem; color: #666; line-height: 1.7; flex: 1; }
+    .proj-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--border);
+    }
+    .proj-date { font-size: 0.62rem; color: var(--muted); }
+    .proj-arrow { font-size: 0.85rem; color: var(--muted); transition: color 0.2s, transform 0.2s; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 1.8rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 960px; margin: 0 auto;
+    }
+    footer span { font-size: 0.68rem; color: var(--muted); }
+  </style>
 </head>
+<body>
 
-<body class="font-sans bg-white text-black">
+<nav>
+  <a href="index.html" class="nav-logo">TG</a>
+  <ul class="nav-links">
+    <li><a href="index.html">home</a></li>
+    <li><a href="about.html">about</a></li>
+    <li><a href="experience.html">experience</a></li>
+    <li><a href="projects.html" class="active">projects</a></li>
+    <li><a href="blog.html">blog</a></li>
+  </ul>
+</nav>
 
-  <!-- NAVBAR -->
-  <nav class="flex justify-center space-x-6 text-sm text-gray-600 py-4 sticky top-0 bg-white z-50">
-    <a href="index.html" class="hover:text-codex">home</a>
-    <a href="index.html" class="hover:text-codex">about</a>
-    <a href="experience.html" class="hover:text-codex">experience</a>
-    <a href="projects.html" class="hover:text-codex font-semibold text-codex">projects</a>
-    <a href="blog.html" class="hover:text-codex">blog</a>
-  </nav>
+<main class="page">
+  <p class="page-eyebrow">// projects</p>
+  <h1 class="page-title">Projects</h1>
 
-  <!-- PROJECTS GRID -->
-  <main class="px-6 py-16 max-w-6xl mx-auto">
-    <h1 class="text-4xl font-bold mb-12 text-center">Projects</h1>
-    <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
-  </main>
+  <div class="projects-grid">
 
-  <!-- MODAL -->
-  <div id="project-modal" class="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 hidden">
-    <div class="bg-white text-black w-[95%] max-w-6xl max-h-[90vh] overflow-y-auto mx-auto p-10 rounded-xl shadow-xl relative">
-      <button onclick="closeModal()" class="absolute top-3 right-4 text-2xl text-gray-600 hover:text-black">&times;</button>
-      <h2 id="modal-title" class="text-3xl font-bold mb-4"></h2>
-      <div id="modal-content" class="prose max-w-none"></div>
-    </div>
+    <a href="projects/mapping-sydney.html" class="proj-card">
+      <div class="proj-img">
+        <img src="images/TableauSyd.JPG" alt="Mapping Sydney's Data">
+      </div>
+      <div class="proj-body">
+        <div class="proj-tags">
+          <span class="proj-tag">Tableau</span>
+          <span class="proj-tag">Data Viz</span>
+          <span class="proj-tag">GIS</span>
+        </div>
+        <h2 class="proj-title">Mapping Sydney's Data</h2>
+        <p class="proj-desc">An interactive Tableau dashboard visualising Sydney through geographic and demographic data, using calculated fields, parameters, and shapefiles.</p>
+        <div class="proj-footer">
+          <span class="proj-date">2024</span>
+          <span class="proj-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Add more project cards here following the same pattern -->
+
   </div>
+</main>
 
-  <script src="projects.js"></script>
+<footer>
+  <span>Theo Gaiyasudeen</span>
+  <span>Sydney, AU</span>
+</footer>
+
 </body>
 </html>
