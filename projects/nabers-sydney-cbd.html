@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sydney CBD in 3D: NABERS Ratings — Theo Gaiyasudeen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --surface: #f7f7f5; --border: #e8e8e8;
+      --text: #111111; --muted: #999999; --accent: #00AAAA;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 56px;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.72rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    .back-bar {
+      max-width: 860px; margin: 0 auto;
+      padding: 5.5rem 2.5rem 0;
+    }
+    .back-link {
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      letter-spacing: 0.06em; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .page { max-width: 860px; margin: 0 auto; padding: 2.5rem 2.5rem 7rem; }
+
+    .proj-meta { margin-bottom: 2.5rem; }
+    .proj-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+    .proj-tag {
+      font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); padding: 0.25rem 0.65rem; border: 1px solid var(--accent-dim, #003a3a);
+    }
+    .proj-title {
+      font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800; letter-spacing: -0.03em; color: var(--text); margin-bottom: 0.8rem;
+    }
+    .proj-date { font-size: 0.68rem; color: var(--muted); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    .prose {
+      font-size: 0.88rem; line-height: 1.9; color: #555555; max-width: 680px;
+    }
+    .prose p { margin-bottom: 1.4rem; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--text); margin: 2.2rem 0 0.8rem;
+    }
+    .prose h2:first-child { margin-top: 0; }
+    .prose ul { margin: 0 0 1.4rem 1.2rem; }
+    .prose li { margin-bottom: 0.4rem; }
+    .prose strong { color: var(--text); font-weight: 400; }
+
+    /* Map embed — breaks out of the text column a little on wide screens */
+    .map-wrap {
+      margin: 3rem -2.5rem;
+      border: 1px solid var(--border);
+      background: #0d0d0d;
+      overflow: hidden;
+    }
+    @media (min-width: 1100px) { .map-wrap { margin-left: -6rem; margin-right: -6rem; } }
+    .map-label {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); padding: 0.7rem 1rem;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+    .map-label a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .map-label a:hover { color: var(--accent); }
+    .map-frame { position: relative; height: 640px; }
+    .map-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    /* Overlay stops the map swallowing page scroll until the reader clicks in */
+    .map-cover {
+      position: absolute; inset: 0; z-index: 2; cursor: pointer;
+      display: flex; align-items: flex-end; justify-content: center; padding-bottom: 1.5rem;
+      background: none; border: 0; font: inherit;
+    }
+    .map-cover span {
+      font-size: 0.68rem; letter-spacing: 0.08em; color: #fff;
+      background: rgba(26,26,25,0.85); border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.5rem 0.9rem;
+    }
+    .map-frame.active .map-cover { display: none; }
+
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border); border: 1px solid var(--border);
+      margin: 2rem 0 2.5rem;
+    }
+    .stat { background: var(--bg); padding: 1.1rem 1.2rem; }
+    .stat b { display: block; font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--text); }
+    .stat span { font-size: 0.64rem; color: var(--muted); letter-spacing: 0.04em; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 1.8rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 860px; margin: 0 auto;
+    }
+    footer span { font-size: 0.68rem; color: var(--muted); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .back-bar { padding-left: 1rem; padding-right: 1rem; }
+      .page { padding-left: 1rem; padding-right: 1rem; }
+      .map-wrap { margin-left: -1rem; margin-right: -1rem; }
+      .map-frame { height: 520px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">TG</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">home</a></li>
+    <li><a href="../about.html">about</a></li>
+    <li><a href="../experience.html">experience</a></li>
+    <li><a href="../projects.html" class="active">projects</a></li>
+    <li><a href="../blog.html">blog</a></li>
+  </ul>
+</nav>
+
+<div class="back-bar">
+  <a href="../projects.html" class="back-link">← back to projects</a>
+</div>
+
+<main class="page">
+  <div class="proj-meta">
+    <div class="proj-tags">
+      <span class="proj-tag">Python</span>
+      <span class="proj-tag">deck.gl</span>
+      <span class="proj-tag">GIS</span>
+      <span class="proj-tag">AI-assisted</span>
+    </div>
+    <h1 class="proj-title">Sydney CBD in 3D: NABERS Ratings</h1>
+    <p class="proj-date">2026</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="prose">
+    <p>
+      This one is an experiment. I wanted to see how far I could get with AI to clean and visualise sustainability data at a building level.
+    </p>
+    <p>
+      The map visualises NABERS (the National Australian Built Environment Rating System). It rates commercial buildings out of six stars for energy, water, waste and indoor environment. The ratings are public, but the register is one big spreadsheet of certificates.
+    </p>
+  </div>
+
+  <div class="map-wrap">
+    <div class="map-label">
+      <span>// interactive 3d map</span>
+      <a href="sydney_cbd_nabers_3d.html" target="_blank" rel="noopener">open full screen ↗</a>
+    </div>
+    <div class="map-frame" id="mapFrame">
+      <iframe src="sydney_cbd_nabers_3d.html" title="3D map of Sydney CBD buildings coloured by NABERS rating" loading="lazy"></iframe>
+      <button class="map-cover" type="button" aria-label="Interact with the map"><span>click to explore · drag to pan · scroll to zoom · ctrl + drag to tilt</span></button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>213</b><span>buildings with an energy rating</span></div>
+    <div class="stat"><b>4.45★</b><span>average energy rating</span></div>
+    <div class="stat"><b>65 m</b><span>average height of rated buildings (unrated: 15 m)</span></div>
+    <div class="stat"><b>44</b><span>buildings rated in all four categories</span></div>
+  </div>
+
+  <div class="prose">
+    <h2>Why this matters beyond the map</h2>
+    <p>
+      The 3D map is the eye-catching part, but the underlying data is more interesting. Only a small share of buildings have a rating, and they're almost all big office towers. That's expected, since mandatory disclosure under the Commercial Building Disclosure program covers large office spaces.
+    </p>
+    <p>
+      Energy is by far the most common rating, with a median of 5 stars, and many of the city's landmark towers sit at 5 to 5.5, including Salesforce Tower, the MLC Centre and Tower 1 Barangaroo. Waste and indoor environment ratings are much less common since they're voluntary, and the buildings that do get them often score very well, with 6 stars the most common waste rating.
+    </p>
+    <p>
+      Buildings rated below 5 stars could face either a retrofit bill or a shrinking pool of tenants as tenant and government leasing policies push towards higher minimum ratings. Large towers with no current rating are worth a look too, since disclosure is usually only triggered when space is sold or leased.
+    </p>
+
+    <h2>The pipeline</h2>
+    <p>The project is four short Python scripts that run in order:</p>
+    <ul>
+      <li><strong>Clean the register:</strong> reshape the NABERS certificate export into one row per building, keeping the best current rating of each type. Then filter it to Greater Sydney by postcode (pandas).</li>
+      <li><strong>Fetch buildings:</strong> download building footprints and heights for the CBD from OpenStreetMap (osmnx).</li>
+      <li><strong>Join:</strong> match each NABERS record to the building footprint it belongs to (geopandas).</li>
+      <li><strong>Render:</strong> extrude the footprints to their heights and export a single interactive HTML file with an Energy / Water / Waste / Indoor toggle (pydeck).</li>
+    </ul>
+
+    <h2>On using AI for this</h2>
+    <p>
+      Using Claude Code meant I could have a working prototype ready in a single afternoon. While not perfect, vibecoding this meant I could iterate quickly using libraries like pydeck which I haven't used before.
+    </p>
+
+    <h2>Where I'd take it next</h2>
+    <p>
+      I would really like to make the map more interactive, and add the ability to compare portfolios based on the entities that own each building.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <span>Theo Gaiyasudeen</span>
+  <span>Sydney, AU</span>
+</footer>
+
+<script>
+  const mapFrame = document.getElementById('mapFrame');
+  mapFrame.querySelector('.map-cover').addEventListener('click', () => mapFrame.classList.add('active'));
+  mapFrame.addEventListener('mouseleave', () => mapFrame.classList.remove('active'));
+</script>
+
+</body>
+</html>
