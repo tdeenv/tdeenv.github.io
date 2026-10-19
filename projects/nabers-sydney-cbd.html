@@ -177,8 +177,8 @@
   <div class="stats">
     <div class="stat"><b>213</b><span>buildings with an energy rating</span></div>
     <div class="stat"><b>4.45★</b><span>average energy rating</span></div>
-    <div class="stat"><b>65 m</b><span>average height of rated buildings (unrated: 15 m)</span></div>
-    <div class="stat"><b>44</b><span>buildings rated in all four categories</span></div>
+    <div class="stat"><b>68 m</b><span>average height of rated buildings (unrated: 15 m)</span></div>
+    <div class="stat"><b>45</b><span>buildings rated in all four categories</span></div>
   </div>
 
   <div class="prose">
@@ -199,7 +199,7 @@
       <li><strong>Clean the register:</strong> reshape the NABERS certificate export into one row per building, keeping the best current rating of each type. Then filter it to Greater Sydney by postcode (pandas).</li>
       <li><strong>Fetch buildings:</strong> download building footprints and heights for the CBD from OpenStreetMap (osmnx).</li>
       <li><strong>Join:</strong> match each NABERS record to the building footprint it belongs to (geopandas).</li>
-      <li><strong>Render:</strong> extrude the footprints to their heights and export a single interactive HTML file with an Energy / Water / Waste / Indoor toggle (pydeck).</li>
+      <li><strong>Render:</strong> extrude the footprints to their heights (towers are built up from their separate OpenStreetMap parts) and export a single interactive HTML file with an Energy / Water / Waste / Indoor toggle (pydeck).</li>
     </ul>
 
     <h2>On using AI for this</h2>
